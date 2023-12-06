@@ -1,12 +1,14 @@
 package com.filmrental.entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +27,9 @@ public class Country {
 
 	@Column(name = "country")
 	private String countryName;
+	
+//	@OneToMany(mappedBy = "country")
+//    private List<City> cities;
 
 	@Column(name = "last_update", nullable = false)
 	private Timestamp lastUpdate;

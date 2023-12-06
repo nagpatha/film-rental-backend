@@ -1,9 +1,11 @@
 package com.filmrental.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import com.filmrental.entity.Customer;
 import com.filmrental.entity.Inventory;
+import com.filmrental.entity.Payment;
 import com.filmrental.entity.Staff;
 
 import lombok.AllArgsConstructor;
@@ -23,5 +25,6 @@ public class RentalModel {
 	private Customer customer;
 	private Timestamp returnDate;
 	private Staff staff;
+    private List<Payment> payments;
 	private Timestamp lastUpdate;
 }

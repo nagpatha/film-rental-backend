@@ -1,14 +1,19 @@
 package com.filmrental.entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,10 +32,9 @@ public class Film {
 
 	private String title;
 
-//	@Lob
 	private String description;
 
-	@Column(name = "release_year")
+	@Column(name = "release_id")
 	private String releaseYear;
 
 	@ManyToOne
@@ -57,7 +61,40 @@ public class Film {
 	@Column(name = "special_features")
 	private String specialFeatures;
 
+//	@OneToMany(mappedBy = "film", cascade = CascadeType.ALL)
+//    private List<FilmActor> filmActors;
+//	
+//	@OneToMany(mappedBy = "film", cascade = CascadeType.ALL)
+//    private List<FilmCategory> filmCategories;
+//	
+//	@OneToMany(mappedBy = "film" , cascade = CascadeType.ALL)
+//    private List<Inventory> inventories;
+	
+	@ManyToMany
+	@JoinTable(
+	    name = "film_actor",
+	    joinColumns = @JoinColumn(name = "film_id"),
+	    inverseJoinColumns = @JoinColumn(name = "actor_id")
+	)
+	private List<Actor> allActors;
+
+	@ManyToMany
+	@JoinTable(
+	    name = "film_category",
+	    joinColumns = @JoinColumn(name = "film_id"),
+	    inverseJoinColumns = @JoinColumn(name = "category_id")
+	)
+	private List<Category> allCategorie;
+	
+	@ManyToMany
+	@JoinTable(
+	    name = "inventory",
+	    joinColumns = @JoinColumn(name = "film_id"),
+	    inverseJoinColumns = @JoinColumn(name = "store_id")
+	)
+	private List<Store> allStores;
+	
+	
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;
-
 }

@@ -1,8 +1,12 @@
 package com.filmrental.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
+import com.filmrental.entity.Actor;
+import com.filmrental.entity.Category;
 import com.filmrental.entity.Language;
+import com.filmrental.entity.Store;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,5 +31,8 @@ public class FilmModel {
 	private Double replacementCost;
 	private String rating;
 	private String specialFeatures;
+    private List<ActorModel> allActors;
+    private List<CategoryModel> allCategories;
+    private List<StoreModel> allStores;
 	private Timestamp lastUpdate;
 }

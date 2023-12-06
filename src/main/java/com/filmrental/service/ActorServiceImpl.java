@@ -27,7 +27,6 @@ public class ActorServiceImpl implements ActorService{
 
 	@Override
 	public String addActor(ActorModel newActorModel) {
-		
 		Actor actor = new Actor();
 		BeanUtils.copyProperties(newActorModel, actor);
 		actorRepo.save(actor);

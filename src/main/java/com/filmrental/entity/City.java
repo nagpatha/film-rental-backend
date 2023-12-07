@@ -34,8 +34,9 @@ public class City {
 //    @JoinColumn(name = "country_id")
 //	private Country country;
 //    
-//    @OneToMany(mappedBy = "city")
-//    private List<Address> addresses;
+    @OneToMany
+    @JoinColumn(name = "city_id")
+    private List<Address> allAddresses;
 
 	@Column(name = "last_update", nullable = false)
 	private Timestamp lastUpdate;

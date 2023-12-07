@@ -34,7 +34,7 @@ public class Film {
 
 	private String description;
 
-	@Column(name = "release_id")
+	@Column(name = "release_year")
 	private String releaseYear;
 
 	@ManyToOne

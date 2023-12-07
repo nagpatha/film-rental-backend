@@ -35,8 +35,9 @@ public class Inventory {
 //    @JoinColumn(name = "store_id")
 //	private Store store;
     
-//    @OneToMany(mappedBy = "inventory")
-//    private List<Rental> rentals;
+	@OneToMany
+    @JoinColumn(name = "inventory_id")
+    private List<Rental> allRentals;
 
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;

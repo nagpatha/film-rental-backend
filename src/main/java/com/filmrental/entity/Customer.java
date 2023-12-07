@@ -30,9 +30,7 @@ public class Customer {
 	@Column(name = "customer_id")
 	private int customerId;
 
-//    @ManyToOne
-//    @JoinColumn(name = "store_id")
-//	private Store store;
+
 
 	@Column(name = "first_name")
 	private String firstName;
@@ -43,9 +41,6 @@ public class Customer {
 	@Column(name = "email", nullable = false)
 	private String email;
 
-//    @ManyToOne
-//    @JoinColumn(name = "address_id")
-//	private Address address;
 
 	@Column(name = "active", length = 1)
 	private String active;
@@ -54,11 +49,13 @@ public class Customer {
 	@Temporal(TemporalType.DATE)
 	private Date createDate;
 	
-//	@OneToMany(mappedBy = "customer")
-//    private List<Rental> rentals;
-//
-//    @OneToMany(mappedBy = "customer")
-//    private List<Payment> payments;
+	@OneToMany
+    @JoinColumn(name = "customer_id")
+	List<Rental> allRentals;
+	
+	@OneToMany
+    @JoinColumn(name = "customer_id")
+	List<Payment> allPayments;
 
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;

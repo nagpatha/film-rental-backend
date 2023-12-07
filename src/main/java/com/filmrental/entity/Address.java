@@ -9,6 +9,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
@@ -36,25 +38,27 @@ public class Address {
 	@Column(name = "district")
 	private String district;
 
-//	@ManyToOne
-//	@JoinColumn(name = "city_id")
-//	private City city;
-
 	@Column(name = "postal_code", nullable = false)
 	private String postalCode;
 
 	@Column(name = "phone")
 	private String phone;
 	
-//	@OneToMany(mappedBy = "address")
-//    private List<Customer> customers;
-//
-//    @OneToMany(mappedBy = "address")
-//    private List<Staff> staffList;
-//
-//    @OneToMany(mappedBy = "address")
-//    private List<Store> stores;
+	@OneToMany
+    @JoinColumn(name = "address_id")
+    private List<Customer> customers;
+	
+
+	@OneToMany
+    @JoinColumn(name = "address_id")
+    private List<Staff> staffList;
+
 
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;
+	
+	@OneToMany
+    @JoinColumn(name = "address_id")
+	private List<Store> allStores ;
+	
 }

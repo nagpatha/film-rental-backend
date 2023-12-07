@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,10 +28,11 @@ public class Country {
 
 	@Column(name = "country")
 	private String countryName;
-	
-//	@OneToMany(mappedBy = "country")
-//    private List<City> cities;
 
 	@Column(name = "last_update", nullable = false)
 	private Timestamp lastUpdate;
+	
+	@OneToMany
+	@JoinColumn(name = "country_id")
+	private List<City> allCities; 
 }

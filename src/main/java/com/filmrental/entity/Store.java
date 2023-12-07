@@ -26,21 +26,11 @@ public class Store {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "store_id")
 	private int storeId;
-//
-//	@ManyToOne
-//	@JoinColumn(name = "manager_staff_id")
-//	private Staff managerStaff;
-
-//	@ManyToOne
-//	@JoinColumn(name = "address_id")
-//	private Address address;
-	
-//	@OneToMany(mappedBy = "store")
-//    private List<Inventory> inventories;
-
-//    @OneToMany(mappedBy = "store")
-//    private List<Staff> staffList;
 
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;
+	
+	@OneToMany
+    @JoinColumn(name = "store_id")
+	List<Customer> allCustomers;
 }

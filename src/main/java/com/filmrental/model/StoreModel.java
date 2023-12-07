@@ -19,9 +19,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class StoreModel {
 	private int storeId;
-	private Staff managerStaff;
-	private Address address;
-    private List<Inventory> inventories;
-    private List<Staff> staffList;
 	private Timestamp lastUpdate;
+	private List<CustomerModel> allCustomer;
 }

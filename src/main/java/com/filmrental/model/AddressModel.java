@@ -8,6 +8,9 @@ import com.filmrental.entity.Customer;
 import com.filmrental.entity.Staff;
 import com.filmrental.entity.Store;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,11 +25,10 @@ public class AddressModel {
 	private String streetAddress;
 	private String address2;
 	private String district;
-	private City city;
 	private String postalCode;
 	private String phone;
-    private List<Customer> customers;
-    private List<Staff> staffList;
-    private List<Store> stores;
+    private List<CustomerModel> customers;
+    private List<StaffModel> staffList;
 	private Timestamp lastUpdate;
+	private List<StoreModel> allStores ;
 }

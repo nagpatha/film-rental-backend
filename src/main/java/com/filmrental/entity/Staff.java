@@ -33,10 +33,6 @@ public class Staff {
 	@Column(name = "last_name")
 	private String lastName;
 
-//    @ManyToOne
-//    @JoinColumn(name = "address_id")
-//	private Address address;
-
 	@Column(name = "picture", nullable = false)
 	private String picture;
 
@@ -55,12 +51,13 @@ public class Staff {
 	@Column(name = "password", nullable = false, length = 40)
 	private String password;
 	
-//	@ManyToOne
-//    @JoinColumn(name = "store_id")
-//    private Store store;
+	@OneToMany
+    @JoinColumn(name = "staff_id")
+	private List<Payment> allPayments;
 	
-//	@OneToMany(mappedBy = "staff")
-//    private List<Rental> rentals;
+	@OneToMany
+    @JoinColumn(name = "staff_id")
+    private List<Rental> allRentals;
 
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;

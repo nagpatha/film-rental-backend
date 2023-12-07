@@ -5,6 +5,9 @@ import java.util.List;
 
 import com.filmrental.entity.City;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +21,6 @@ import lombok.Setter;
 public class CountryModel {
 	private int countryId;
 	private String countryName;
-    private List<City> cities;
 	private Timestamp lastUpdate;
+	private List<CityModel> allCities; 
 }

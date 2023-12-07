@@ -5,6 +5,9 @@ import java.util.List;
 
 import com.filmrental.entity.FilmActor;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +21,5 @@ public class ActorModel {
 	private int actorId;
 	private String firstName;
 	private String lastName;
-    private List<FilmActor> filmActors;
 	private Timestamp lastUpdate;
 }

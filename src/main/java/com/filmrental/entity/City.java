@@ -1,6 +1,7 @@
 package com.filmrental.entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,9 +30,13 @@ public class City {
 	@Column(name = "city")
 	private String cityName;
 
-    @ManyToOne
-    @JoinColumn(name = "country_id")
-	private Country country;
+//    @ManyToOne
+//    @JoinColumn(name = "country_id")
+//	private Country country;
+//    
+    @OneToMany
+    @JoinColumn(name = "city_id")
+    private List<Address> allAddresses;
 
 	@Column(name = "last_update", nullable = false)
 	private Timestamp lastUpdate;

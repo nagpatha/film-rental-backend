@@ -1,7 +1,13 @@
 package com.filmrental.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
+import com.filmrental.entity.FilmActor;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

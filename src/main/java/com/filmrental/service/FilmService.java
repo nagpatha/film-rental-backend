@@ -1,5 +1,11 @@
 package com.filmrental.service;
 
-public interface FilmService {
+import java.util.List;
 
+import com.filmrental.model.FilmModel;
+
+public interface FilmService {
+	String addFilm(FilmModel newFilmModel);
+	
+	List<FilmModel>findByTitle(String title);
 }

@@ -1,6 +1,7 @@
 package com.filmrental.entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +27,7 @@ public class Store {
 	@Column(name = "store_id")
 	private int storeId;
 
+
 //	@ManyToOne
 //	@JoinColumn(name = "manager_staff_id")
 //	private Staff manager;
@@ -33,10 +36,11 @@ public class Store {
 	@JoinColumn(name = "address_id")
 	private Address address;
 
+
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;
 	
-//	@ManyToOne
-//	@JoinColumn(name = "manager_staff_id")
-//	private Staff managerStaff;
+	@OneToMany(mappedBy = "store")
+	List<Customer> allCustomers;
+
 }

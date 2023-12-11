@@ -1,11 +1,14 @@
 package com.filmrental.model;
  
 import java.sql.Timestamp;
+import java.util.List;
 
 import java.util.List;
  
 import com.filmrental.entity.Address;
-
+import com.filmrental.entity.Payment;
+import com.filmrental.entity.Rental;
+import com.filmrental.entity.Store;
 import com.filmrental.entity.Payment;
 
 import com.filmrental.entity.Rental;
@@ -63,6 +66,7 @@ public class StaffModel {
 
     private List<RentalModel> rentals;
  
+
 	private Timestamp lastUpdate;
 	
 	private AddressModel address;

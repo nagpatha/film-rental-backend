@@ -30,20 +30,14 @@ public class Rental {
 	@Column(name = "rental_date")
 	private Timestamp rentalDate;
 
-    @ManyToOne
-    @JoinColumn(name = "inventory_id")
-	private Inventory inventory;
-
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-	private Customer customer;
 
 	@Column(name = "return_date", nullable = false)
 	private Timestamp returnDate;
 
-    @ManyToOne
-    @JoinColumn(name = "staff_id")
-	private Staff staff;
+
+	@OneToMany
+    @JoinColumn(name = "rental_id")
+    private List<Payment> payments;
 
     @OneToMany
     @JoinColumn(name ="rental_id")

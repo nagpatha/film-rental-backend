@@ -2,8 +2,9 @@ package com.filmrental.model;
 
 import java.sql.Timestamp;
 
-import com.filmrental.entity.Category;
+import com.filmrental.entity.Actor;
 import com.filmrental.entity.Film;
+import com.filmrental.entity.FilmActorId;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,8 +16,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class FilmCategory {
-	private Film film;
-	private Category category;
+public class FilmActorModel {
+    private FilmActorId filmActorId;
+    private Actor actor;
+    private Film film;
 	private Timestamp lastUpdate;
 }

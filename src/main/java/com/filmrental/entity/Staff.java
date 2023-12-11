@@ -26,10 +26,8 @@ public class Staff {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "staff_id")
-
-
 	private int staffId;
- 
+
 
 	@Column(name = "first_name")
 	private String firstName;
@@ -37,23 +35,12 @@ public class Staff {
 	@Column(name = "last_name")
 	private String lastName;
 
-
-
-
-
 	@Column(name = "picture", nullable = false)
 	private String picture;
  
 	@Column(name = "email", nullable = false)
 	private String email;
 
-
-
-
-
- 
-
- 
 
 	@Column(name = "active")
 	private Long active;
@@ -63,12 +50,11 @@ public class Staff {
  
 	@Column(name = "password", nullable = false, length = 40)
 	private String password;
-
-
 	
 	@OneToMany
     @JoinColumn(name = "staff_id")
 	private List<Payment> allPayments;
+	
 	@OneToMany
     @JoinColumn(name = "staff_id")
     private List<Rental> allRentals;

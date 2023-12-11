@@ -1,4 +1,4 @@
-package com.filmrental.film_rental;
+package com.filmrental;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

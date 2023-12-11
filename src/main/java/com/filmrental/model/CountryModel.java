@@ -3,6 +3,8 @@ package com.filmrental.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import org.antlr.v4.runtime.misc.NotNull;
+
 import com.filmrental.entity.City;
 
 import jakarta.persistence.Column;
@@ -21,6 +23,8 @@ import lombok.Setter;
 public class CountryModel {
 	private int countryId;
 	private String countryName;
+	@NotNull
 	private Timestamp lastUpdate;
 	private List<CityModel> allCities; 
+	private StoreModel store;
 }

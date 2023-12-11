@@ -3,6 +3,9 @@ package com.filmrental.entity;
 import java.sql.Timestamp;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,14 +32,10 @@ public class City {
 
 	@Column(name = "city")
 	private String cityName;
-
-//    @ManyToOne
-//    @JoinColumn(name = "country_id")
-//	private Country country;
-//    
-    @OneToMany
-    @JoinColumn(name = "city_id")
-    private List<Address> allAddresses;
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "country_id")
+    private Country country;
 
 	@Column(name = "last_update", nullable = false)
 	private Timestamp lastUpdate;

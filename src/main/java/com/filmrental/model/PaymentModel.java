@@ -22,7 +22,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PaymentModel {
-	@Column(name = "payment_id")
 	private int paymentId;
 	private int customerId;
 	private int rentalId;

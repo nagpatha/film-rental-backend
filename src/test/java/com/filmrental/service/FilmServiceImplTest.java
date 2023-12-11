@@ -3,6 +3,7 @@ package com.filmrental.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -128,14 +129,15 @@ public class FilmServiceImplTest {
 		FilmModel newFilmModel = new FilmModel(1, "FilmTitle", "2022", "Description", null, null, null, null, null,
 				null, "Category1", "Category2", null, null, null, null);
 
-		when(languageRepo.save(any(Language.class))).thenReturn(new Language());
+		doNothing().when(languageRepo.save(any(Language.class)));
+		doNothing().when(filmRepo).flush();
 		when(filmRepo.save(any(Film.class))).thenReturn(new Film());
-
+		doNothing().when(filmRepo).flush();
 		String result = filmServiceImpl.addFilm(newFilmModel);
 
 		assertEquals("Record Created Successfully", result);
-		verify(languageRepo, times(2)).save(any(Language.class));
 		verify(filmRepo).save(any(Film.class));
+		verify(languageRepo).save(any(Language.class));
 		verify(filmRepo).flush();
 	}
 

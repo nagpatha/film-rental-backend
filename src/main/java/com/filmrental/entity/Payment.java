@@ -26,8 +26,6 @@ public class Payment {
 	@Column(name = "payment_id")
 	private int paymentId;
 
-
-
 	@Column(name = "amount", precision = 5, scale = 2)
 	private BigDecimal amount;
 
@@ -36,4 +34,7 @@ public class Payment {
 
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;
+	
+	@ManyToOne
+	private Customer customer;
 }

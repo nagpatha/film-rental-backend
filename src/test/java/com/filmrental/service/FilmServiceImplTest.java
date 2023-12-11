@@ -30,7 +30,7 @@ public class FilmServiceImplTest {
 
 	@Mock
 	FilmRepo filmRepo;
-	
+
 	@Mock
 	LanguageRepo languageRepo;
 
@@ -39,7 +39,7 @@ public class FilmServiceImplTest {
 
 	@Test
 	public void testFindByTitle() {
-		String title ="film";
+		String title = "film";
 		List<Film> stubAllFilms = new ArrayList<>();
 		stubAllFilms.add(new Film(1, "film1", "2018", "hhh", null, null, null, null, null, null, title, title, null,
 				null, null, null));
@@ -56,7 +56,7 @@ public class FilmServiceImplTest {
 
 	@Test
 	public void testFindByTitleException() {
-		String title ="Film1";
+		String title = "Film1";
 		List<Film> stubAllFilms = new ArrayList<>();
 		when(filmRepo.findByTitle(title)).thenReturn(stubAllFilms);
 		String expectedMessage = "Films are not present with " + title + " title ";
@@ -94,7 +94,7 @@ public class FilmServiceImplTest {
 		assertEquals(expectedMessage, actualMessage);
 		verify(filmRepo).findByLengthGreaterThan(length);
 	}
-	
+
 	@Test
 	public void testFindByRatingGreaterThan() {
 		String rating = "5.5";
@@ -109,7 +109,7 @@ public class FilmServiceImplTest {
 		assertEquals(expectedFilModels.size(), actualFilModels.size());
 		verify(filmRepo).findByRatingGreaterThan(rating);
 	}
-	
+
 	@Test
 	public void testFindByRatingGreaterThanException() {
 		String rating = "5.5";
@@ -122,41 +122,41 @@ public class FilmServiceImplTest {
 		assertEquals(expectedMessage, actualMessage);
 		verify(filmRepo).findByRatingGreaterThan(rating);
 	}
-	
+
 	@Test
 	public void testAddFilm() {
-	    FilmModel newFilmModel = new FilmModel(1, "FilmTitle", "2022", "Description", null, null, null, null, null, null,
-	            "Category1", "Category2", null, null, null, null);
+		FilmModel newFilmModel = new FilmModel(1, "FilmTitle", "2022", "Description", null, null, null, null, null,
+				null, "Category1", "Category2", null, null, null, null);
 
-	    when(languageRepo.save(any(Language.class))).thenReturn(new Language());
-	    when(filmRepo.save(any(Film.class))).thenReturn(new Film());
+		when(languageRepo.save(any(Language.class))).thenReturn(new Language());
+		when(filmRepo.save(any(Film.class))).thenReturn(new Film());
 
-	    String result = filmServiceImpl.addFilm(newFilmModel);
+		String result = filmServiceImpl.addFilm(newFilmModel);
 
-	    assertEquals("Record Created Successfully", result);
-	    verify(languageRepo, times(2)).save(any(Language.class));
-	    verify(filmRepo).save(any(Film.class));
-	    verify(filmRepo).flush();
+		assertEquals("Record Created Successfully", result);
+		verify(languageRepo, times(2)).save(any(Language.class));
+		verify(filmRepo).save(any(Film.class));
+		verify(filmRepo).flush();
 	}
-	
-	 @Test
-	    public void testFindAllActorsById() {
-	        int filmId = 1;
-	        Film film = new Film();
-	        film.setFilmId(filmId);
-	        List<Actor> actors = new ArrayList<>();
-	        actors.add(new Actor(1, "salman", "khan", null));
-	        actors.add(new Actor(2, "shahrukh", "khan", null));
-	        film.setAllActors(actors);
 
-	        when(filmRepo.findById(filmId)).thenReturn(Optional.of(film));
+	@Test
+	public void testFindAllActorsById() {
+		int filmId = 1;
+		Film film = new Film();
+		film.setFilmId(filmId);
+		List<Actor> actors = new ArrayList<>();
+		actors.add(new Actor(1, "salman", "khan", null, null));
+		actors.add(new Actor(2, "shahrukh", "khan", null, null));
+		film.setAllActors(actors);
 
-	        List<ActorModel> expectedActorModels = new ArrayList<>();
-	        expectedActorModels.add(new ActorModel(1, "salman", "khan", null));
-	        expectedActorModels.add(new ActorModel(2, "shahrukh", "khan", null));
+		when(filmRepo.findById(filmId)).thenReturn(Optional.of(film));
 
-	        List<ActorModel> actualActorModels = filmServiceImpl.findAllActorsById(filmId);
+		List<ActorModel> expectedActorModels = new ArrayList<>();
+		expectedActorModels.add(new ActorModel(1, "salman", "khan", null));
+		expectedActorModels.add(new ActorModel(2, "shahrukh", "khan", null));
 
-	        assertEquals(expectedActorModels.size(), actualActorModels.size());
-	    }
+		List<ActorModel> actualActorModels = filmServiceImpl.findAllActorsById(filmId);
+
+		assertEquals(expectedActorModels.size(), actualActorModels.size());
+	}
 }

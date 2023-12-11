@@ -14,10 +14,6 @@ import com.filmrental.entity.Film;
 import com.filmrental.model.FilmModel;
 
 
-public interface FilmRepo extends JpaRepository<Film, Integer>{
-	List<Film>findByTitle(String title);
-//	@Query("select film_id from Film f where f.film_id=?1")
-//	public Film getFilmsById(int id);
 
 public interface FilmRepo extends JpaRepository<Film, Integer> {
 	List<Film> findByTitle(String title);

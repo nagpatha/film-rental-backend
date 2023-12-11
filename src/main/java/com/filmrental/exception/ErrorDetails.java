@@ -1,4 +1,4 @@
-package com.filmrental.exceptions;
+package com.filmrental.exception;
 
 import java.time.LocalDate;
 

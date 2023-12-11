@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.filmrental.entity.Actor;
 import com.filmrental.entity.Film;
-import com.filmrental.exceptions.ActorNotFoundException;
+import com.filmrental.exception.ActorNotFoundException;
 import com.filmrental.model.ActorModel;
 import com.filmrental.model.FilmModel;
 import com.filmrental.repository.ActorRepo;

@@ -1,4 +1,4 @@
-package com.filmrental.exceptions;
+package com.filmrental.exception;
 
 public class ResourceNotFoundException extends RuntimeException  {
 	

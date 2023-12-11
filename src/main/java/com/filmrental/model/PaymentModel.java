@@ -24,9 +24,6 @@ import lombok.Setter;
 public class PaymentModel {
 	@Column(name = "payment_id")
 	private int paymentId;
-	private int customerId;
-	private int rentalId;
-	private int staffId;
 	private BigDecimal amount;
 	private Timestamp paymentDate;
 	private Timestamp lastUpdate;

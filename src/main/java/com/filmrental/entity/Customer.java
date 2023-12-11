@@ -43,7 +43,7 @@ public class Customer {
 
 
 	@Column(name = "active", length = 1)
-	private char active;
+	private String active;
 
 	@Column(name = "create_date")
 	@Temporal(TemporalType.DATE)

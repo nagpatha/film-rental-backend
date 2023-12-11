@@ -42,14 +42,14 @@ public class Payment {
 	@Column(name = "amount", precision = 5, scale = 2)
 	private BigDecimal amount;
     
-	@Column(name="customer_id")
-	private int customerId;
+//	@Column(name="customer_id")
+//	private int customerId;
+//	
+//	@Column(name="rental_id")
+//	private int rentalId;
 	
-	@Column(name="rental_id")
-	private int rentalId;
-	
-	@Column(name="staff_id")
-	private int staffId;
+//	@Column(name="staff_id")
+//	private int staffId;
 	
 	@Column(name = "payment_date")
 	private Timestamp paymentDate;

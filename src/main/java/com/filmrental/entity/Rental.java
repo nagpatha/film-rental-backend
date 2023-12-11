@@ -39,9 +39,9 @@ public class Rental {
     @JoinColumn(name = "rental_id")
     private List<Payment> payments;
 
-    @OneToMany
-    @JoinColumn(name ="rental_id")
-    private List<Payment> payments;
+//    @OneToMany
+//    @JoinColumn(name ="rental_id")
+//    private List<Payment> payments;
     
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;

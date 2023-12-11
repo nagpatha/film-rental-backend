@@ -4,11 +4,16 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+
+
 import org.springframework.data.repository.query.Param;
+
 
 import com.filmrental.entity.Actor;
 import com.filmrental.entity.Film;
 import com.filmrental.model.FilmModel;
+
+
 
 public interface FilmRepo extends JpaRepository<Film, Integer> {
 	List<Film> findByTitle(String title);
@@ -41,5 +46,6 @@ public interface FilmRepo extends JpaRepository<Film, Integer> {
 
 	@Query("SELECT f FROM Film f JOIN f.allCategorie c WHERE c.name = :categoryName")
 	List<Film> findByCategoryName(String categoryName);
+
 
 }

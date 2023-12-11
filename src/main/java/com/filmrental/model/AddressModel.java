@@ -22,4 +22,5 @@ public class AddressModel {
 	private String postalCode;
 	private String phone;
 	private Timestamp lastUpdate;
+
 }

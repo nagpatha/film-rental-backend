@@ -23,11 +23,11 @@ public class Store {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "store_id")
-	private Long storeId;
+	private int storeId;
 
-	@ManyToOne
-	@JoinColumn(name = "manager_staff_id")
-	private Staff manager;
+//	@ManyToOne
+//	@JoinColumn(name = "manager_staff_id")
+//	private Staff manager;
 
 	@ManyToOne
 	@JoinColumn(name = "address_id")
@@ -35,4 +35,8 @@ public class Store {
 
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;
+	
+//	@ManyToOne
+//	@JoinColumn(name = "manager_staff_id")
+//	private Staff managerStaff;
 }

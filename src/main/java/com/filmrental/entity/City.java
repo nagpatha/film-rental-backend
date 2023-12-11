@@ -2,6 +2,10 @@ package com.filmrental.entity;
 
 import java.sql.Timestamp;
 
+
+
+import jakarta.persistence.CascadeType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,9 +32,12 @@ public class City {
 	@Column(name = "city")
 	private String cityName;
 
-    @ManyToOne
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "country_id")
-	private Country country;
+	private Country country;    
+    
+
 
 	@Column(name = "last_update", nullable = false)
 	private Timestamp lastUpdate;

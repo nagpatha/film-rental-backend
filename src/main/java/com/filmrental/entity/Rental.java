@@ -1,6 +1,7 @@
 package com.filmrental.entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +25,7 @@ public class Rental {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "rental_id")
-	private Long rentalId;
+	private int rentalId;
 
 	@Column(name = "rental_date")
 	private Timestamp rentalDate;
@@ -43,6 +45,10 @@ public class Rental {
     @JoinColumn(name = "staff_id")
 	private Staff staff;
 
+    @OneToMany
+    @JoinColumn(name ="rental_id")
+    private List<Payment> payments;
+    
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;
 }

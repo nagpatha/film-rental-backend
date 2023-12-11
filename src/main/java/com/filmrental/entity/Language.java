@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,6 +30,7 @@ public class Language {
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;
 	
-//	@OneToMany(mappedBy = "language", cascade = CascadeType.ALL)
+//	@OneToMany
+//	@JoinColumn(name="language_id")
 //    private List<Film> films;
 }

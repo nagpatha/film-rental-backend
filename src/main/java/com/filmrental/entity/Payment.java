@@ -26,18 +26,6 @@ public class Payment {
 	@Column(name = "payment_id")
 	private int paymentId;
 
-//	@ManyToOne
-//	@JoinColumn(name = "customer_id")
-//	private Customer customer;
-//
-//	@ManyToOne
-//	@JoinColumn(name = "staff_id")
-//	private Staff staff;
-//
-//	@ManyToOne
-//	@JoinColumn(name = "rental_id")
-//	private Rental rental;
-
 	@Column(name = "amount", precision = 5, scale = 2)
 	private BigDecimal amount;
     

@@ -13,7 +13,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -55,11 +54,15 @@ public class Film {
  
 	@Column(name = "replacement_cost")
 	private Double replacementCost;
- 
+
+
+	@Column(name = "rating", nullable = false)
+
 	private String rating;
  
 	@Column(name = "special_features")
 	private String specialFeatures;
+
  
 //	@OneToMany(mappedBy = "film", cascade = CascadeType.ALL)
 //    private List<FilmActor> filmActors;
@@ -69,6 +72,7 @@ public class Film {
 //	
 //	@OneToMany(mappedBy = "film" , cascade = CascadeType.ALL)
 //    private List<Inventory> inventories;
+
 	@ManyToMany
 	@JoinTable(
 	    name = "film_actor",

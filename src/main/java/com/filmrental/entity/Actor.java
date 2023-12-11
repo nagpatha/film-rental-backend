@@ -35,11 +35,13 @@ public class Actor {
 
 	@Column(name = "last_name")
 	private String lastName;
+
 	
 //	@OneToMany(mappedBy = "actor")
 //    private List<FilmActor> filmActors;
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
+
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;
     

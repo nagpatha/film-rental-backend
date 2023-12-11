@@ -30,7 +30,10 @@ public class Store {
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;
 	
-	@OneToMany
-    @JoinColumn(name = "store_id")
+	@ManyToOne
+    @JoinColumn(name = "address_id")
+	private Address address ;
+	
+	@OneToMany(mappedBy = "store")
 	List<Customer> allCustomers;
 }

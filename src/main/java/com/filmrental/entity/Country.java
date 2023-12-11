@@ -3,6 +3,8 @@ package com.filmrental.entity;
 import java.sql.Timestamp;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,7 +34,6 @@ public class Country {
 	@Column(name = "last_update", nullable = false)
 	private Timestamp lastUpdate;
 	
-	@OneToMany
-	@JoinColumn(name = "country_id")
+	@OneToMany(mappedBy = "country")
 	private List<City> allCities; 
 }

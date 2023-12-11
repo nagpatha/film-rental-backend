@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.filmrental.model.PaymentModel;
 import com.filmrental.service.PaymentService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/payment")
 public class PaymentController {
@@ -18,5 +20,12 @@ public class PaymentController {
 	@Autowired 
 	private PaymentService paymentService;
 	
+
 	
+	@PutMapping("add")
+	public ResponseEntity<String> addNewPayment(@Valid @RequestBody PaymentModel newPayment) {
+		String response = paymentService.addNewPayment(newPayment);
+		return new ResponseEntity<String>(response, HttpStatus.CREATED);
+	}
 }
+

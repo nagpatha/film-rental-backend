@@ -28,8 +28,30 @@ public class Payment {
 
 
 
+	@ManyToOne
+	@JoinColumn(name = "customer_id")
+	private Customer customer;
+
+	@ManyToOne
+	@JoinColumn(name = "staff_id")
+	private Staff staff;
+
+	@ManyToOne
+	@JoinColumn(name = "rental_id")
+	private Rental rental;
+
 	@Column(name = "amount", precision = 5, scale = 2)
 	private BigDecimal amount;
+    
+//	@Column(name="customer_id")
+//	private int customerId;
+//	
+//	@Column(name="rental_id")
+//	private int rentalId;
+	
+//	@Column(name="staff_id")
+//	private int staffId;
+	
 
 	@Column(name = "payment_date")
 	private Timestamp paymentDate;

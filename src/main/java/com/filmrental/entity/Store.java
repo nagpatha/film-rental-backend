@@ -28,22 +28,32 @@ public class Store {
 	@Column(name = "store_id")
 	private int storeId;
 
+
+//	@ManyToOne
+//	@JoinColumn(name = "manager_staff_id")
+//	private Staff manager;
+
+	@ManyToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
+
+
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;
 	
+
 //	@Column(name = "city")
 //	private String city;
 	
 	
 	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="address_id")
-	private Address address;
+
 	
 	@OneToMany
     @JoinColumn(name = "store_id")
 	List<Staff> allStaff;
-	
+
 	@OneToMany(mappedBy = "store")
 	List<Customer> allCustomers;
+
 }

@@ -28,6 +28,7 @@ public class RentalModel {
 	private int rentalId;
 	private Timestamp rentalDate;
 	private Timestamp returnDate;
-    private List<PaymentModel> payments;
+	private Staff staff;
+	private List<PaymentModel> payments;
 	private Timestamp lastUpdate;
 }

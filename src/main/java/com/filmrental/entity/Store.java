@@ -3,6 +3,7 @@ package com.filmrental.entity;
 import java.sql.Timestamp;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -40,6 +41,18 @@ public class Store {
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;
 	
+
+//	@Column(name = "city")
+//	private String city;
+	
+	
+	
+
+	
+	@OneToMany
+    @JoinColumn(name = "store_id")
+	List<Staff> allStaff;
+
 	@OneToMany(mappedBy = "store")
 	List<Customer> allCustomers;
 

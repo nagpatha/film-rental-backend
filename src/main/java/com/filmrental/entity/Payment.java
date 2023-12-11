@@ -27,6 +27,7 @@ public class Payment {
 	private int paymentId;
 
 
+
 	@ManyToOne
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
@@ -51,6 +52,7 @@ public class Payment {
 //	@Column(name="staff_id")
 //	private int staffId;
 	
+
 	@Column(name = "payment_date")
 	private Timestamp paymentDate;
 

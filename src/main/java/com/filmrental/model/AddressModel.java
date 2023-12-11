@@ -35,6 +35,7 @@ public class AddressModel {
     private List<Customer> customers;
     private List<Staff> staffList;
 	private Timestamp lastUpdate;
+
 	private List<Store> allStores ;
 	private CityModel city;
 	private AddressModel address;

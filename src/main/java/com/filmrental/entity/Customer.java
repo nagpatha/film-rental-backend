@@ -51,7 +51,9 @@ public class Customer {
 
 
 	@Column(name = "active", length = 1)
+
 	private String active; // i changed from char to string
+
 
 	@Column(name = "create_date")
 	@Temporal(TemporalType.DATE)

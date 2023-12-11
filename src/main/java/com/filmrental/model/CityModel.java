@@ -22,6 +22,7 @@ import lombok.Setter;
 public class CityModel {
 	private int cityId;
 	private String cityName;
+
     private List<Address> allAddresses;
     private CountryModel country;
 	private Timestamp lastUpdate;

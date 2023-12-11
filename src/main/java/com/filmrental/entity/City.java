@@ -3,7 +3,6 @@ package com.filmrental.entity;
 import java.sql.Timestamp;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -32,10 +31,12 @@ public class City {
 
 	@Column(name = "city")
 	private String cityName;
-    
+
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "country_id")
-    private Country country;
+	private Country country;    
+    
 
 	@Column(name = "last_update", nullable = false)
 	private Timestamp lastUpdate;

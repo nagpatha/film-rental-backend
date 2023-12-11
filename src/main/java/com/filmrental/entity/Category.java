@@ -27,9 +27,6 @@ public class Category {
 
 	private String name;
 
-//	@OneToMany(mappedBy = "category")
-//	private List<FilmCategory> filmCategories;
-
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;
 

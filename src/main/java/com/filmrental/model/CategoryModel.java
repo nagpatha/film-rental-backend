@@ -6,6 +6,7 @@ import java.util.List;
 import com.filmrental.entity.FilmCategory;
 
 import jakarta.persistence.Column;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class CategoryModel {
 	private int categoryId;
+
 	private String name;
+
 	private Timestamp lastUpdate;
 }

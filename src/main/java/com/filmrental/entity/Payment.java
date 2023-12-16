@@ -26,9 +26,6 @@ public class Payment {
 	@Column(name = "payment_id")
 	private int paymentId;
 
-
-
-
 	@ManyToOne
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
@@ -61,6 +58,5 @@ public class Payment {
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;
 	
-	@ManyToOne
-	private Customer customer;
+
 }

@@ -20,10 +20,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CityModel {
-	private int cityId;
-	private String cityName;
-
-    private List<Address> allAddresses;
-    private CountryModel country;
-	private Timestamp lastUpdate;
+		private int cityId;
+		private String cityName;
+	    private List<Address> allAddresses;
+	    private CountryModel country;
+		private Timestamp lastUpdate;
 }

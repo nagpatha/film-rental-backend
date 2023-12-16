@@ -63,8 +63,7 @@ public class Customer {
     @JoinColumn(name = "customer_id")
 	private List<Rental> allRentals;
 	
-	@OneToMany
-    @JoinColumn(name = "customer_id")
+	@OneToMany(mappedBy = "customer")
 	private List<Payment> allPayments;
 	
 	@ManyToOne(cascade = CascadeType.ALL)

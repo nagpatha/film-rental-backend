@@ -9,7 +9,11 @@ import com.filmrental.model.FilmModel;
 
 public interface FilmService {
 	
+	List<FilmModel> findAllFilms();
+	
 	Film findById(int id);
+	
+	FilmModel getFilmById(int id);
 	
 	String addFilm(FilmModel newFilmModel);
 
@@ -58,4 +62,5 @@ public interface FilmService {
 	FilmModel updateFilmCategory(int filmId, FilmModel newCategory);
 
 	List<ActorModel> assignFilmToActors(int id, FilmModel filmModel);
+
 }

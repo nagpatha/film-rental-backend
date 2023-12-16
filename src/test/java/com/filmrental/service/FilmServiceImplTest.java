@@ -25,6 +25,7 @@ import com.filmrental.model.ActorModel;
 import com.filmrental.model.FilmModel;
 import com.filmrental.repository.FilmRepo;
 import com.filmrental.repository.LanguageRepo;
+import com.filmrental.service.util.ConvertFilmEntityToFilmModel;
 
 @SpringBootTest
 public class FilmServiceImplTest {
@@ -161,4 +162,5 @@ public class FilmServiceImplTest {
 
 		assertEquals(expectedActorModels.size(), actualActorModels.size());
 	}
+	
 }

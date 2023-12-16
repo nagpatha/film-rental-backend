@@ -204,8 +204,7 @@ public class StaffServiceImpl implements StaffService {
 	            if (staff.getAddress().getCity() != null) {
 	                CityModel cityModel = new CityModel();
 	                BeanUtils.copyProperties(staff.getAddress().getClass(), cityModel);
-//	                addressModel.setCity(cityModel);
-//	                addressModel.setCity(cityModel);
+	                addressModel.setCity(cityModel);
 	            }
 	        }
 
@@ -231,12 +230,12 @@ public class StaffServiceImpl implements StaffService {
 	            if (staff.getAddress().getCity() != null) {
 	                CityModel cityModel = new CityModel();
 	                BeanUtils.copyProperties(staff.getAddress().getCity(), cityModel);
-//	                addressModel.setCity(cityModel);
+	                addressModel.setCity(cityModel);
 
 	                if (staff.getAddress().getCity().getCountry() != null) {
 	                    CountryModel countryModel = new CountryModel();
 	                    BeanUtils.copyProperties(staff.getAddress().getCity().getCountry(), countryModel);
-//	                    cityModel.setCountry(countryModel);
+	                    cityModel.setCountry(countryModel);
 	                }
 	            }
 	        }
@@ -264,7 +263,7 @@ public class StaffServiceImpl implements StaffService {
 	        if (staff.getAddress().getCity() != null) {
 	            CityModel cityModel = new CityModel();
 	            BeanUtils.copyProperties(staff.getAddress().getCity(), cityModel);
-//	            addressModel.setCity(cityModel);
+	            addressModel.setCity(cityModel);
 	        }
 	    }
 	    return staffModel;

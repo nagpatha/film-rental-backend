@@ -2,18 +2,12 @@ package com.filmrental.model;
 
 import java.sql.Timestamp;
 import java.util.List;
-
-import com.filmrental.entity.Actor;
-import com.filmrental.entity.Category;
 import com.filmrental.entity.Language;
-import com.filmrental.entity.Store;
-
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 
 @Getter
 @Setter
@@ -22,7 +16,6 @@ import lombok.Setter;
 public class FilmModel {
 	private int filmId;
 	private String title;
-	
 	@NotNull
 	private String description;
 	@NotNull

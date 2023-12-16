@@ -40,4 +40,5 @@ public class City {
 
 	@Column(name = "last_update", nullable = false)
 	private Timestamp lastUpdate;
+
 }

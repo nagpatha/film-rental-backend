@@ -35,8 +35,7 @@ public class Rental {
 	private Timestamp returnDate;
 
 
-	@OneToMany
-    @JoinColumn(name = "rental_id")
+	@OneToMany(mappedBy = "rental")
     private List<Payment> payments;
 
 //    @OneToMany

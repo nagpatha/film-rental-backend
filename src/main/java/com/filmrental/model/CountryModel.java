@@ -26,5 +26,5 @@ public class CountryModel {
 	@NotNull
 	private Timestamp lastUpdate;
 	private List<CityModel> allCities; 
-	private StoreModel store;
+//	private StoreModel store;
 }

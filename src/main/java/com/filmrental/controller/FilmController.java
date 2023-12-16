@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,17 +13,38 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.filmrental.entity.Film;
 import com.filmrental.model.ActorModel;
 import com.filmrental.model.FilmModel;
 import com.filmrental.service.FilmService;
 import jakarta.validation.Valid;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/films")
 public class FilmController {
 
 	@Autowired
 	private FilmService filmService;
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Film> findById(@PathVariable int id) {
+		Film response = filmService.findById(id);
+		return new ResponseEntity<Film>(response, HttpStatus.OK);
+	}
+	
+	@GetMapping("/id/{id}")
+	public ResponseEntity<FilmModel> getFilmById(@PathVariable int id) {
+		FilmModel response = filmService.getFilmById(id);
+		return new ResponseEntity<FilmModel>(response, HttpStatus.OK);
+	}
+	
+	@GetMapping("/getAll")
+	public ResponseEntity<List<FilmModel>> findAllFilms(){
+		List<FilmModel> response = filmService.findAllFilms();
+		return new ResponseEntity<List<FilmModel>>(response, HttpStatus.OK);
+	}
 
 	@PostMapping("/post")
 	public ResponseEntity<String> addFilm(@Valid @RequestBody FilmModel newFilmModel) {
@@ -47,7 +69,7 @@ public class FilmController {
 		List<FilmModel> response = filmService.findByRentalDurationGreaterThan(rd);
 		return new ResponseEntity<List<FilmModel>>(response, HttpStatus.OK);
 	}
-
+ 
 	@GetMapping("/rate/gt/{rate}")
 	public ResponseEntity<List<FilmModel>> findByRentalRateGreaterThan(@PathVariable("rate") double rate) {
 		List<FilmModel> response = filmService.findByRentalRateGreaterThan(rate);

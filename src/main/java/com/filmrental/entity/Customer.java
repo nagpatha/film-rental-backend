@@ -51,7 +51,9 @@ public class Customer {
 
 
 	@Column(name = "active", length = 1)
-	private String active;
+
+	private String active; // i changed from char to string
+
 
 	@Column(name = "create_date")
 	@Temporal(TemporalType.DATE)
@@ -61,8 +63,7 @@ public class Customer {
     @JoinColumn(name = "customer_id")
 	private List<Rental> allRentals;
 	
-	@OneToMany
-    @JoinColumn(name = "customer_id")
+	@OneToMany(mappedBy = "customer")
 	private List<Payment> allPayments;
 	
 	@ManyToOne(cascade = CascadeType.ALL)

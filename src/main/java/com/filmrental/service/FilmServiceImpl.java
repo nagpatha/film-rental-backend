@@ -1,7 +1,6 @@
 package com.filmrental.service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -32,6 +31,31 @@ public class FilmServiceImpl implements FilmService {
 
 	@Autowired
 	private LanguageRepo languageRepo;
+	
+	@Override
+	public List<FilmModel> findAllFilms() {
+		List<Film> films = filmRepo.findAll();
+		List<FilmModel> allFilms = new ArrayList<>();
+		for(Film film : films) {
+			FilmModel filmModel = new FilmModel();
+			BeanUtils.copyProperties(film, filmModel);
+			allFilms.add(filmModel);
+		}
+		return allFilms;
+	}
+	
+	@Override
+	public FilmModel getFilmById(int id) {
+		Optional<Film> optionalFilm = filmRepo.findById(id);
+		if (optionalFilm.isPresent()) {
+			Film film = optionalFilm.get();
+			FilmModel filmModel = new FilmModel();
+			BeanUtils.copyProperties(film, filmModel);
+			return filmModel;
+		} else {
+			throw new FilmNotFoundException("Film is not present with " + id + " film id ");
+		}
+	}
 
 	@Override
 	public Film findById(int id) {
@@ -178,7 +202,6 @@ public class FilmServiceImpl implements FilmService {
 			throw new FilmNotFoundException("Films are not less than  " + rating + " rating ");
 		}
 		return ConvertFilmEntityToFilmModel.convertEntityToModel(films);
-
 	}
 
 	@Override
@@ -319,4 +342,5 @@ public class FilmServiceImpl implements FilmService {
 		Film updatedFilm = filmRepo.save(film);
 		return ConvertFilmEntityToFilmModel.copyFilmToFilmModel(film, updatedFilm);
 	}
+
 }

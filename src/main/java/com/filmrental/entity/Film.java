@@ -2,8 +2,7 @@ package com.filmrental.entity;
  
 import java.sql.Timestamp;
 import java.util.List;
- 
-import jakarta.persistence.CascadeType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -62,16 +61,6 @@ public class Film {
  
 	@Column(name = "special_features")
 	private String specialFeatures;
-
- 
-//	@OneToMany(mappedBy = "film", cascade = CascadeType.ALL)
-//    private List<FilmActor> filmActors;
-//	
-//	@OneToMany(mappedBy = "film", cascade = CascadeType.ALL)
-//    private List<FilmCategory> filmCategories;
-//	
-//	@OneToMany(mappedBy = "film" , cascade = CascadeType.ALL)
-//    private List<Inventory> inventories;
 
 	@ManyToMany
 	@JoinTable(

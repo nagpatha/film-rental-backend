@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService{
 			authModel.setToken(jwtService.generateToken(userModel));
 		}else {
 			throw new RuntimeException("Invalid Username/password!");
-		}
+		} 
 		return authModel;
 	}
 }

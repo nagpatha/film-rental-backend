@@ -27,5 +27,5 @@ public class Roles {
 	int rolesId;
 	
 	@Column(name="roles_name")
-	String rolesName;
+	String rolesName; 
 }

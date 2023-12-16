@@ -7,3 +7,4 @@ import com.filmrental.entity.User;
 public interface UserRepo extends JpaRepository<User, Integer>{
 	User findByUserName(String name);
 }
+ 

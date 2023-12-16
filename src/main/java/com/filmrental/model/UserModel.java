@@ -12,10 +12,11 @@ import lombok.ToString;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
+@ToString    
 public class UserModel {
 	int userId;
 	String userName;
 	String userPassword;
 	List<RolesModel> allRoles;
 }
+ 
